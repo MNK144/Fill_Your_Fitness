@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "600806570225",
+    "firebase_url": "https://fillyourfitness.firebaseio.com",
+    "project_id": "fillyourfitness",
+    "storage_bucket": "fillyourfitness.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600806570225:android:3d41bfec25c07feeac1150",
+        "android_client_info": {
+          "package_name": "com.manank.gymapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600806570225-f5on7sbtpevdh6irouncmq822kgeu1i0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.manank.gymapp",
+            "certificate_hash": "c34fbf1c50e334281c96afeb2bca8c4823f5dbc5"
+          }
+        },
+        {
+          "client_id": "600806570225-25t324kr2moochmi98m27789d8kmb8l0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8EHHpN1c3ame_81CpHY-9Nz2nV-WnAGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600806570225-25t324kr2moochmi98m27789d8kmb8l0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
