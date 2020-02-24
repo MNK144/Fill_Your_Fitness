@@ -20,11 +20,13 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private DatabaseHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
+        db = new DatabaseHelper(this);
         Button login,reg;
         login = findViewById(R.id.login);
         reg = findViewById(R.id.register);
@@ -58,9 +60,9 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
+                            db.setSession(user.getUid(),user.getEmail());
                             Toast.makeText(getApplicationContext(), "Login Successful",Toast.LENGTH_LONG).show();
                             Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                            i.putExtra("login",true);
                             startActivity(i);
                             finish();
                         } else {
@@ -68,5 +70,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
+
     }
 }

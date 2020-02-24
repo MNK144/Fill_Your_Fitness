@@ -1,6 +1,7 @@
 package com.manank.gymapp;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.navigation.NavController;
@@ -20,18 +21,23 @@ import android.view.Menu;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-
+    private DatabaseHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //TEST
-        if(!(getIntent().getBooleanExtra("login",false))) {
+        db = new DatabaseHelper(this);
+        Cursor c = db.getSession();
+
+        //Session Checking
+
+        if(c.getCount()==0) {
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
             this.finish();
         }
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
