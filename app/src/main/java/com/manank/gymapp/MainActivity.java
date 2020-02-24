@@ -16,7 +16,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +42,22 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
             this.finish();
         }
+
+
+        final LayoutInflater factory = getLayoutInflater();
+        final View textEntryView = factory.inflate(R.layout.nav_header_main,null);
+        TextView uemail = (TextView) textEntryView.findViewById(R.id.uemail);
+        String s;
+        /////////////////////////////PENDING PROBLEM///////////////////////////////////////
+        while(c.moveToNext())
+        {
+            s = c.getString(1);
+            Log.d("STR",uemail.getText().toString());
+            uemail.setText(s);
+            Log.d("STR",uemail.getText().toString());
+        }
+        //c.moveToFirst();
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

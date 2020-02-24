@@ -26,7 +26,7 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE "+ TABLE_SESSION +" ("+ S_COL_SESSION +" VARCHAR(50) , "+ S_COL_EMAIL +" VARCHAR(50))");
+        db.execSQL("CREATE TABLE "+ TABLE_SESSION +" ("+ S_COL_SESSION +" TEXT , "+ S_COL_EMAIL +" TEXT)");
     }
 
     @Override
