@@ -5,11 +5,11 @@
     android:fitsSystemWindows="true">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="24dp"
         android:paddingTop="60dp"
+        android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
         <TextView
@@ -18,61 +18,61 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="50dp"
-            android:text="Login"
+            android:text="BMI"
             android:textSize="36dp" />
 
         <EditText
-            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
+            android:id="@+id/height"
+            android:inputType="number"
+            android:hint="Height (CM)" />
 
         <EditText
-            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:hint="Password"
-            android:inputType="textPassword" />
+            android:id="@+id/weight"
+            android:inputType="number"
+            android:hint="Weight (KG)"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/age"
+            android:inputType="number"
+            android:hint="Age"/>
+
+
+        <TextView
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint=" Gender"
+            android:textSize="18dp"
+            />
+
+        <Spinner
+            android:layout_marginTop="8dp"
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/login"
+            android:id="@+id/btnbmi"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
-            android:text="Login" />
-
-        <TextView
-            android:id="@+id/btnForgot"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/forgot"
-            android:textColor="#4d4dff" />
+            android:text="Calculate BMI"/>
 
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:gravity="center"
-            android:paddingTop="30dp"
-            android:text="No account yet? Create one"
-            android:textSize="16dip" />
-
-        <Button
-            android:id="@+id/register"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:padding="12dp"
-            android:text="Register" />
 
     </LinearLayout>
 </RelativeLayout>
