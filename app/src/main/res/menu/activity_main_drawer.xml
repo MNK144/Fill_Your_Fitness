@@ -6,20 +6,25 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@android:drawable/ic_menu_gallery"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_bmi"
             android:icon="@android:drawable/ic_input_add"
             android:title="@string/menu_bmi" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_diet"
+            android:icon="@android:drawable/ic_menu_month"
+            android:title="@string/menu_diet" />
         <item
-            android:id="@+id/nav_tools"
+            android:id="@+id/nav_calorie"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:title="@string/menu_calorie" />
+
+        <item
+            android:id="@+id/nav_workout"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="@string/menu_workout" />
     </group>
 
     <item android:title="Communicate">
@@ -29,9 +34,9 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="@string/menu_share" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_feedback"
                 android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:title="@string/menu_feedback" />
         </menu>
     </item>
 

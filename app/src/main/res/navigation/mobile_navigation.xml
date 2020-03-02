@@ -13,21 +13,27 @@
 
     <fragment
         android:id="@+id/nav_bmi"
-        android:name="com.manank.gymapp.ui.gallery.BMIFragment"
+        android:name="com.manank.gymapp.ui.bmi.BMIFragment"
         android:label="@string/menu_bmi"
         tools:layout="@layout/fragment_bmi" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.manank.gymapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_diet"
+        android:name="com.manank.gymapp.ui.diet.DietFragment"
+        android:label="@string/menu_diet"
+        tools:layout="@layout/fragment_diet" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.manank.gymapp.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        android:id="@+id/nav_calorie"
+        android:name="com.manank.gymapp.ui.calories.CaloriesFragment"
+        android:label="@string/menu_calorie"
+        tools:layout="@layout/fragment_calories" />
+
+    <fragment
+        android:id="@+id/nav_workout"
+        android:name="com.manank.gymapp.ui.workout.WorkoutFragment"
+        android:label="@string/menu_workout"
+        tools:layout="@layout/fragment_workout"/>
 
     <fragment
         android:id="@+id/nav_share"
@@ -36,8 +42,8 @@
         tools:layout="@layout/fragment_share" />
 
     <fragment
-        android:id="@+id/nav_send"
-        android:name="com.manank.gymapp.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
+        android:id="@+id/nav_feedback"
+        android:name="com.manank.gymapp.ui.feedback.FeedbackFragment"
+        android:label="@string/menu_feedback"
+        tools:layout="@layout/fragment_feedback" />
 </navigation>

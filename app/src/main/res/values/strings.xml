@@ -9,10 +9,12 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_bmi">BMI</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
+    <string name="menu_diet">Diet</string>
+    <string name="menu_calorie">Calorie Counter</string>
+    <string name="menu_workout">Workout</string>
     <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
+    <string name="menu_feedback">Feedback</string>
+
 
     <string name="forgot"><u>Forgot password?</u></string>
 </resources>
