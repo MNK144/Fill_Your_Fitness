@@ -11,15 +11,23 @@
         android:text="Feedback"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:textSize="30dp"
+        android:textSize="36dp"
         />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@id/tv1"
+        android:layout_marginTop="10dp"
+        android:background="#5E2BD6"/>
+
     <EditText
         android:id="@+id/oex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="12"
         android:hint="Overall Experience"
-        android:layout_marginLeft="50sp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:layout_below="@id/tv1"
         />
@@ -28,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/desc"
-        android:layout_marginLeft="50dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
        />
 
@@ -42,7 +50,7 @@
         android:gravity="top"
         android:layout_below="@+id/oex"
         android:hint="Describe your feedback."
-        android:layout_marginLeft="50dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         />
 
