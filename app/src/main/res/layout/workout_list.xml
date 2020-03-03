@@ -21,15 +21,13 @@
         android:text="TEST"
         android:textSize="18sp"/>
         <TextView
-         android:id="@+id/descr"
-         android:layout_width="250sp"
+         android:layout_width="310sp"
          android:layout_height="wrap_content"
             android:textSize="10sp"
          android:text="This is where all the description will go"/>
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/pic"
         android:layout_width="50sp"
         android:layout_height="50sp"
         app:srcCompat="@drawable/ic_menu_camera" />
