@@ -82,13 +82,19 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DROP TABLE " + TABLE_SESSION);
     }
-    public void setWorkout(String title,String desc,byte[] img)
+    public boolean setWorkout(String title,String desc,byte[] img)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(S_COL_TITLE,title);
         cv.put(S_COL_DESCRIPTION,desc);
         cv.put(S_COL_IMAGES,img);
+        long res = db.insert(TABLE_WORKOUT,null,cv);
+        if(res==-1)
+            return false;
+        else
+            return true;
+
     }
     public Cursor getWorkout()
     {
