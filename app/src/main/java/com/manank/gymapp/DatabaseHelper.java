@@ -32,7 +32,7 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+ TABLE_SESSION +" ("+S_COL_SESSION +" TEXT , "+ S_COL_EMAIL+ " TEXT)");
-        db.execSQL("CREATE TABLE " + TABLE_WORKOUT +" ("+ S_COL_TITLE  +" TEXT , "+ S_COL_DESCRIPTION + " TEXT , " + S_COL_IMAGES+" BLOB)");
+        db.execSQL("CREATE TABLE " + TABLE_WORKOUT +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ S_COL_TITLE  +" TEXT , "+ S_COL_DESCRIPTION + " TEXT , " + S_COL_IMAGES+" BLOB)");
     }
 
     @Override
@@ -59,23 +59,6 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM "+TABLE_SESSION,null);
         return data;
-        //Cursor result;
-        /*
-        try {
-            Cursor result = db.rawQuery("select * from " + TABLE_SESSION, null);
-            switch (d)
-            {
-                case 2:
-                    return result.getString(1);
-                default:
-                    return result.getString(0);
-            }
-        }
-        catch (Exception e)
-        {
-            Log.d("DB ERROR:","DATABASE HELPER->"+e);
-            return "ERROR";
-        }*/
     }
     public void deleteSession()
     {
