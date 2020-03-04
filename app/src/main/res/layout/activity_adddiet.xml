@@ -6,7 +6,7 @@
     tools:context=".AddWorkout">
 
     <EditText
-        android:id="@+id/wtitle"
+        android:id="@+id/dtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="12"
@@ -15,7 +15,7 @@
         android:layout_marginTop="50dp"
         />
     <EditText
-        android:id="@+id/wdesc"
+        android:id="@+id/ddesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="12"
@@ -23,17 +23,17 @@
         android:hint="Enter Description"
         android:lines="4"
         android:gravity="top"
-        android:layout_below="@id/wtitle"
+        android:layout_below="@id/dtitle"
         android:layout_marginTop="40dp"
         />
     <Button
-        android:id="@+id/wadd"
+        android:id="@+id/dadd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="12"
         android:text="Add"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/wdesc"
+        android:layout_below="@id/ddesc"
         android:layout_marginTop="40sp"
         />
 

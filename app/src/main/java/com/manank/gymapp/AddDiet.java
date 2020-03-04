@@ -12,8 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.io.ByteArrayOutputStream;
-
-public class AddWorkout extends AppCompatActivity {
+public class AddDiet extends AppCompatActivity {
     EditText title,desc;
     Button b;
     byte[] image;
@@ -22,7 +21,7 @@ public class AddWorkout extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addworkout);
+        setContentView(R.layout.activity_adddiet);
         db = new DatabaseHelper(getApplicationContext());
         Drawable d;
         d = getDrawable(R.mipmap.icon);
@@ -31,14 +30,14 @@ public class AddWorkout extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         image = stream.toByteArray();
 
-        title = findViewById(R.id.wtitle);
-        desc = findViewById(R.id.wdesc);
-        b = findViewById(R.id.wadd);
+        title = findViewById(R.id.dtitle);
+        desc = findViewById(R.id.ddesc);
+        b = findViewById(R.id.dadd);
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db.setWorkout(title.getText().toString(),desc.getText().toString(),image);
+                db.setDiet(title.getText().toString(),desc.getText().toString(),image);
                 finish();
             }
         });
