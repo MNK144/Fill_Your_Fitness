@@ -61,18 +61,26 @@ public class MainActivity extends AppCompatActivity {
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        final LayoutInflater factory = getLayoutInflater();
-        final View textEntryView = factory.inflate(R.layout.nav_header_main,null);
+        //LayoutInflater factory = getLayoutInflater();
+        //View text = factory.inflate(R.layout.nav_header_main,null);
+        try {
 
-        TextView uemail = (TextView) textEntryView.findViewById(R.id.uemail);
-        String s;
-        /////////////////////////////PENDING PROBLEM///////////////////////////////////////
-        while(c.moveToNext())
+
+            NavigationView nav = (NavigationView) findViewById(R.id.mobile_navigation);
+            Log.d("TEST",String.valueOf(nav==null));
+            View headerView = nav.inflateHeaderView(R.layout.nav_header_main);
+            TextView uemail = headerView.findViewById(R.id.uemail);
+            String s;
+            while (c.moveToNext()) {
+                s = c.getString(1);
+                Log.d("STR", uemail.getText().toString());
+                uemail.setText(s);
+                Log.d("STR", uemail.getText().toString());
+            }
+        }
+        catch (Exception e)
         {
-            s = c.getString(1);
-            Log.d("STR",uemail.getText().toString());
-            uemail.setText(s);
-            Log.d("STR",uemail.getText().toString());
+            Log.d("TEST","Fucked up\n" + e);
         }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
