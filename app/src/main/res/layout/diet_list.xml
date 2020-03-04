@@ -18,12 +18,14 @@
             android:layout_width="310sp"
             android:layout_height="wrap_content"
             android:text="TEST"
+            android:textColor="#ffffff"
             android:textSize="18sp"/>
         <TextView
             android:id="@+id/dldesc"
             android:layout_width="250sp"
             android:layout_height="wrap_content"
             android:textSize="10sp"
+            android:textColor="#ffffff"
             android:text="This is where all the description will go"/>
     </LinearLayout>
 

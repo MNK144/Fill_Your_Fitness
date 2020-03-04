@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -24,6 +25,7 @@ public class BMIFragment extends Fragment /*implements AdapterView.OnItemSelecte
 
 
     EditText height,weight,age;
+    TextView tv;
     Spinner gender;
     Button btnbmi;
     String[] users = { "Male", "Female" };
@@ -45,6 +47,7 @@ public class BMIFragment extends Fragment /*implements AdapterView.OnItemSelecte
         weight = root.findViewById(R.id.weight);
         age = root.findViewById(R.id.age);
         btnbmi = root.findViewById(R.id.btnbmi);
+        tv = root.findViewById(R.id.bmival);
 
         gender = root.findViewById(R.id.gender);
         genderstr=gender.getSelectedItem().toString();
@@ -90,7 +93,8 @@ public class BMIFragment extends Fragment /*implements AdapterView.OnItemSelecte
                         ag = Integer.parseInt(prage);
 
                         bmi = (wei / ((hei * hei)));
-                        Toast.makeText(getActivity().getApplicationContext(), "Height - "+hei+" Weight- "+wei+"\nBMI is " + bmi, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getActivity().getApplicationContext(), "Height - "+hei+" Weight- "+wei+"\nBMI is " + bmi, Toast.LENGTH_LONG).show();
+                        tv.setText(tv.getText().toString() + bmi.toString().subSequence(0,4));
                     }
                 }
             }
