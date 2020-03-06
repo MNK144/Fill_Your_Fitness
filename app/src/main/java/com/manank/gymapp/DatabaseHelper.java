@@ -26,6 +26,8 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
         SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("CREATE TABLE IF NOT EXISTS "+ TABLE_SESSION +" ("+S_COL_SESSION +" TEXT , "+ S_COL_EMAIL+ " TEXT)");//edit
+
     }
 
     @Override
@@ -42,6 +44,17 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_DIET);
         onCreate(db);
     }
+
+    public String getUser(){
+        String user="";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cr = db.rawQuery("SELECT "+S_COL_EMAIL+" FROM "+TABLE_SESSION,null);
+        if (cr.moveToFirst()) {
+            user = cr.getString(cr.getColumnIndex("email"));
+        }
+        return user;
+    }
+
 
     public boolean setSession(String session, String email)
     {
@@ -64,7 +77,7 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
     public void deleteSession()
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DROP TABLE " + TABLE_SESSION);
+        db.execSQL("DELETE FROM " + TABLE_SESSION);//edit
     }
     public boolean setWorkout(String title,String desc,byte[] img)
     {

@@ -10,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -19,10 +20,14 @@ import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    FirebaseAuth firebaseAuth;
 
     private AppBarConfiguration mAppBarConfiguration;
     private DatabaseHelper db;
@@ -46,13 +51,28 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //listener to logout button within toolbar
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                logoutMethod();//call to logout process
+                return false;
+            }
+        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+        View hView =  navigationView.getHeaderView(0);
+        TextView nav_user = hView.findViewById(R.id.uemail);
+        String usern= db.getUser();        //made method in db
+        nav_user.setText(usern);            //set email
+
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_bmi, R.id.nav_diet,
-                R.id.nav_calorie, R.id.nav_share, R.id.nav_feedback)
+                R.id.nav_calorie, R.id.nav_workout,R.id.nav_meals,R.id.nav_share, R.id.nav_feedback)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -63,26 +83,34 @@ public class MainActivity extends AppCompatActivity {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //LayoutInflater factory = getLayoutInflater();
         //View text = factory.inflate(R.layout.nav_header_main,null);
-        try {
-
-
-            NavigationView nav = (NavigationView) findViewById(R.id.mobile_navigation);
-            Log.d("TEST",String.valueOf(nav==null));
-            View headerView = nav.inflateHeaderView(R.layout.nav_header_main);
-            TextView uemail = headerView.findViewById(R.id.uemail);
-            String s;
-            while (c.moveToNext()) {
-                s = c.getString(1);
-                Log.d("STR", uemail.getText().toString());
-                uemail.setText(s);
-                Log.d("STR", uemail.getText().toString());
-            }
-        }
-        catch (Exception e)
-        {
-            Log.d("TEST","Fucked up\n" + e);
-        }
+//        try {
+//
+//
+//            NavigationView nav = (NavigationView) findViewById(R.id.mobile_navigation);
+//            Log.d("TEST",String.valueOf(nav==null));
+//            View headerView = nav.inflateHeaderView(R.layout.nav_header_main);
+//            TextView uemail = headerView.findViewById(R.id.uemail);
+//            String s;
+//            while (c.moveToNext()) {
+//                s = c.getString(1);
+//                Log.d("STR", uemail.getText().toString());
+//                uemail.setText(s);
+//                Log.d("STR", uemail.getText().toString());
+//            }
+//        }
+//        catch (Exception e)
+//        {
+//            Log.d("TEST","nn up\n" + e);
+//        }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    }
+
+    public void logoutMethod(){
+        firebaseAuth.getInstance().signOut();
+        db.deleteSession();
+        Intent i = new Intent(getApplicationContext(),LoginActivity.class);
+        startActivity(i);
+        this.finish();
     }
 
     @Override

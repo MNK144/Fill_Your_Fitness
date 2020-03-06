@@ -64,13 +64,14 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void checkLogin(String e,String p)
     {
+        final String eml = e;
         mAuth.signInWithEmailAndPassword(e, p)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
-                            db.setSession(user.getUid(),user.getEmail());
+                            db.setSession(user.getUid(),eml);
                             Toast.makeText(getApplicationContext(), "Login Successful",Toast.LENGTH_LONG).show();
                             Intent i = new Intent(getApplicationContext(),MainActivity.class);
                             startActivity(i);
