@@ -34,6 +34,7 @@ public class DietFragment extends Fragment {
 
         if(data!=null) {
             adapter = new CustomDietAdapter(getActivity().getApplicationContext(),data,0);
+            adapter.setRoot(root);
             list.setAdapter(adapter);
         }
 

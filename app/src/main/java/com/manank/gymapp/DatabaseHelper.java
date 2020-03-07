@@ -34,7 +34,7 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+ TABLE_SESSION +" ("+S_COL_SESSION +" TEXT , "+ S_COL_EMAIL+ " TEXT)");
         db.execSQL("CREATE TABLE " + TABLE_WORKOUT +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ W_COL_TITLE +" TEXT , "+ W_COL_DESCRIPTION + " TEXT , " + W_COL_IMAGES +" BLOB)");
-        db.execSQL("CREATE TABLE " + TABLE_DIET +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ D_COL_TITLE +" TEXT , "+ D_COL_DESCRIPTION + " TEXT , " + D_COL_IMAGES +" BLOB)");
+        db.execSQL("CREATE TABLE " + TABLE_DIET +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ D_COL_TITLE +" TEXT , "+ D_COL_DESCRIPTION + " TEXT , " + D_COL_IMAGES +" TEXT)");
     }
 
     @Override
@@ -98,7 +98,7 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM "+TABLE_WORKOUT,null);
         return data;
     }
-    public boolean setDiet(String title,String desc,byte[] img)
+    public boolean setDiet(String title,String desc,String img)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();

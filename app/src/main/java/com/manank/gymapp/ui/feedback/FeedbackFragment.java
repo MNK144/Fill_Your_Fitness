@@ -8,9 +8,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -51,12 +53,16 @@ public class FeedbackFragment extends Fragment {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Log.d("Firestore","Data Saved Successfully");
+                                Toast.makeText(getActivity().getApplicationContext(),"Feedback Sent Successfully",Toast.LENGTH_LONG).show();
+                                FragmentManager fm = getActivity().getSupportFragmentManager();
+                                fm.popBackStack();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Log.d("Firestore","Failed to save Data");
+                                Toast.makeText(getActivity().getApplicationContext(),"Failed to send Feedback",Toast.LENGTH_LONG).show();
                             }
                         });
             }

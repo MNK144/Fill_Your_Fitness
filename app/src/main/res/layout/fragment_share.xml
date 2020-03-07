@@ -10,20 +10,26 @@
       android:layout_height="wrap_content"
       android:layout_centerHorizontal="true"
       android:layout_marginTop="80dp"
-      android:layout_marginBottom="20dp"
       android:text="Fill Your Fitness"
       android:textSize="36dp" />
+
+  <ImageView
+      android:id="@+id/imageView4"
+      android:layout_width="wrap_content"
+      android:layout_height="206dp"
+      android:layout_centerHorizontal="true"
+      android:layout_below="@id/txtshare"
+      app:srcCompat="@drawable/google_play_logo" />
 
   <TextView
     android:id="@+id/txtlink"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
-    android:layout_below="@id/txtshare"
+    android:layout_below="@id/imageView4"
     android:text="Share the link to download the app:"
     android:textSize="20dp"
-    android:layout_marginTop="100dp"
-      android:layout_marginBottom="20dp"
+    android:layout_marginBottom="20dp"
     />
 
   <Button
@@ -36,14 +42,7 @@
       android:layout_below="@id/txtlink"
       />
 
-  <ImageView
-      android:id="@+id/imageView4"
-      android:layout_width="wrap_content"
-      android:layout_height="206dp"
-      android:layout_alignParentTop="true"
-      android:layout_centerHorizontal="true"
-      android:layout_marginTop="78dp"
-      app:srcCompat="@drawable/google_play_logo" />
+
 
 
 </RelativeLayout>
