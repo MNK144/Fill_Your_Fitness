@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.android.volley.AuthFailureError;
@@ -29,6 +31,7 @@ import com.manank.gymapp.AddWorkout;
 import com.manank.gymapp.CustomWorkoutAdapter;
 import com.manank.gymapp.DatabaseHelper;
 import com.manank.gymapp.LoginActivity;
+import com.manank.gymapp.MyListData;
 import com.manank.gymapp.R;
 
 import org.json.JSONArray;
@@ -39,9 +42,17 @@ import java.sql.Blob;
 import java.util.HashMap;
 import java.util.Map;
 
+
+import java.io.Serializable;
+import com.squareup.picasso.Picasso;
+
+
 public class WorkoutFragment extends Fragment{
 
-    public String URL_REGIST="https://yourfitnessapp.000webhostapp.com/imga.php";
+
+
+
+
 
 
 
@@ -68,78 +79,83 @@ public class WorkoutFragment extends Fragment{
             public void onClick(View view) {
 //                Intent i = new Intent(getActivity().getApplicationContext(), AddWorkout.class);
 //                startActivity(i);
-                onCallData();
+                login();
+
             }
         });
 
         return root;
     }
 
+//
+//
+//    private MyListData[] listdata;
+//
+//
+//    public void getDataset(){
+//        final MyListData myListData = listdata[position];
+//
+//        Picasso.get().load("https://yourfitnessapp.000webhostapp.com/images/"+listdata[position].getId()+".PNG").into(holder.imageView);
+//
+//    }
 
 
+    public String URL_REGIST="https://yourfitnessapp.000webhostapp.com/";
 
 
-    SharedPreferences sharedPreferences;
-    public void onCallData(){
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL_REGIST,
+    JSONArray array;
+    MyListData[] myListData = null;
+
+    public void login(){
+
+        String URLline = URL_REGIST+"imga.php";
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URLline,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            Toast.makeText(getActivity().getApplicationContext(), "try", Toast.LENGTH_SHORT).show();
-                            Log.d("JSON",response);
-                            JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("success");
-                            JSONArray jsonArray=jsonObject.getJSONArray("exercises");
-                            if (success.equals("1")) {
-                                Toast.makeText(getActivity().getApplicationContext(), "login Success", Toast.LENGTH_SHORT).show();
 
-
-                                for (int i=0 ;i<jsonArray.length();i++)
-                                {
-                                    JSONObject object=jsonArray.getJSONObject(i);
-                                    String name=object.getString("ExerciseID").trim();
-                                    String email=object.getString("Exercise_Name").trim();
-                                    System.out.println(name+email);
-                                    Blob bb ;
-                                    Toast.makeText(getActivity().getApplicationContext(), "login Success", Toast.LENGTH_SHORT).show();
-                                }
-
-//                                sharedPreferences=getSharedPreferences("Savednaata", Context.MODE_PRIVATE);
-//                                SharedPreferences.Editor editor=sharedPreferences.edit();
-//                                editor.putString("value",memail);
-//                                editor.apply();
-//                                Intent intent = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
-//                                startActivity(intent);
-
+                            String st = "https://yourfitnessapp.000webhostapp.com/images/";
+                            array=new JSONArray(response);
+                            myListData=new MyListData[array.length()];
+                            JSONObject obj;
+                            for(int x=0;x<array.length();x++){
+                                obj=array.getJSONObject(x);
+                                myListData[x]=new MyListData(obj.getString("ExerciseID"),obj.getString("Exercise_Name"),st+obj.getString("ExerciseID")+".PNG");
                             }
-                            else
-                            {
-                                Toast.makeText(getActivity().getApplicationContext(), "login error", Toast.LENGTH_SHORT).show();
-                            }
+
+                            Toast.makeText(getActivity().getApplicationContext(),"done:"+myListData[array.length()-1].getId(),Toast.LENGTH_LONG).show();
+
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(getActivity().getApplicationContext(), "login fail" + e.toString(), Toast.LENGTH_SHORT).show();
-                            // reg.setVisibility(View.GONE);
                         }
+
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                Toast.makeText(getActivity().getApplicationContext(), "login failed" + error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        })
-        {
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity().getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }){
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params=new HashMap<>();
-//                params.put("email",memail);
-//                params.put("password",mpassword);
+                Map<String,String> params=new HashMap<String,String>();
+
                 return params;
             }
         };
-        RequestQueue requestQueue= Volley.newRequestQueue(getActivity().getApplicationContext());
+
+        // request queue
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+
         requestQueue.add(stringRequest);
+
     }
+
+
+
 }
