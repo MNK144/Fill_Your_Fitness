@@ -17,14 +17,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-
+/*
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.android.volley.toolbox.Volley;*/
 import com.manank.gymapp.AddWorkout;
 import com.manank.gymapp.CustomWorkoutAdapter;
 import com.manank.gymapp.DatabaseHelper;
@@ -68,7 +68,7 @@ public class WorkoutFragment extends Fragment{
             public void onClick(View view) {
 //                Intent i = new Intent(getActivity().getApplicationContext(), AddWorkout.class);
 //                startActivity(i);
-                onCallData();
+                //onCallData();
             }
         });
 
@@ -78,7 +78,7 @@ public class WorkoutFragment extends Fragment{
 
 
 
-
+/*
     SharedPreferences sharedPreferences;
     public void onCallData(){
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL_REGIST,
@@ -141,5 +141,5 @@ public class WorkoutFragment extends Fragment{
         };
         RequestQueue requestQueue= Volley.newRequestQueue(getActivity().getApplicationContext());
         requestQueue.add(stringRequest);
-    }
+    }*/
 }
