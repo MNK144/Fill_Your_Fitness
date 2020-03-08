@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewWorkout">
+
+    <TextView
+        android:id="@+id/txtdi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diet"
+        android:textSize="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/txtdi"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/vdimg"
+        android:layout_width="176dp"
+        android:layout_height="167dp"
+        android:layout_below="@id/txtdi"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/ic_menu_camera"
+        />
+
+    <TextView
+        android:id="@+id/vdt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vdimg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="22dp"
+        android:text="Diet #1"
+        />
+
+    <TextView
+        android:id="@+id/vdtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vdt"
+        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@id/vdcal"
+        android:text="Timing: "
+        android:textSize="18dp"
+        />
+
+    <TextView
+        android:id="@+id/vdcal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calories: "
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/vdtime"
+        android:layout_alignLeft="@id/vdd"
+        android:textSize="18dp"
+        />
+
+
+
+    <TextView
+        android:id="@+id/vdd"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vdcal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textSize="18dp"
+        android:text="HELL tret reere ertete eeO\nWorld mr mre mkrem rek\n rkgmre mre gre\n rkng rekngre "
+        />
+
+</RelativeLayout>
