@@ -39,7 +39,7 @@ public class ViewDiet extends AppCompatActivity {
 
         String img = data.getString(3);
 
-        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/Diets");
+        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/.Diets");
         File imageFile = new File(path, String.valueOf(img));
         imageView.setImageDrawable(Drawable.createFromPath(imageFile.toString()));
     }

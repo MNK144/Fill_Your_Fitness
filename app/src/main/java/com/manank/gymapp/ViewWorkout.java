@@ -35,7 +35,7 @@ public class ViewWorkout extends AppCompatActivity {
 
         String img = data.getString(3);
 
-        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/Workouts");
+        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/.Workouts");
         File imageFile = new File(path, String.valueOf(img));
         imageView.setImageDrawable(Drawable.createFromPath(imageFile.toString()));
     }

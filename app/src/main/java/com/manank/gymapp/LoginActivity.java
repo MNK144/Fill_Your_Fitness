@@ -209,11 +209,12 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             //Create Path to save Image
-            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/Workouts"); //Creates app specific folder
+            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/.Workouts"); //Creates app specific folder
 
             if(!path.exists()) {
                 path.mkdirs();
             }
+
 
             File imageFile = new File(path, String.valueOf(url.toString().substring(url.toString().length()-8))); // Imagename.png
             FileOutputStream out = null;
@@ -315,8 +316,9 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
+
             //Create Path to save Image
-            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/Diets"); //Creates app specific folder
+            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/.Diets"); //Creates app specific folder
 
             if(!path.exists()) {
                 path.mkdirs();
