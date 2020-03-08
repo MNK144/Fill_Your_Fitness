@@ -38,5 +38,4 @@ public class MyListData implements Serializable {
         this.imgurl = imgurl;
     }
 
-
 }

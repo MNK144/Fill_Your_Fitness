@@ -50,21 +50,17 @@ public class BMIFragment extends Fragment /*implements AdapterView.OnItemSelecte
         tv = root.findViewById(R.id.bmival);
 
         gender = root.findViewById(R.id.gender);
-        genderstr=gender.getSelectedItem().toString();
-        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, users);
-        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //gender.setAdapter(adapter);
         gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-            }
+                genderstr = users[i];            }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
+
         Log.d("DEBUG","CLICKED");
         btnbmi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,8 +89,8 @@ public class BMIFragment extends Fragment /*implements AdapterView.OnItemSelecte
                         ag = Integer.parseInt(prage);
 
                         bmi = (wei / ((hei * hei)));
-                        //Toast.makeText(getActivity().getApplicationContext(), "Height - "+hei+" Weight- "+wei+"\nBMI is " + bmi, Toast.LENGTH_LONG).show();
-                        tv.setText(tv.getText().toString() + bmi.toString().subSequence(0,4));
+                        Toast.makeText(getActivity().getApplicationContext(), "Height - "+hei+" Weight- "+wei+"\nBMI is " + bmi +"Gen "+genderstr, Toast.LENGTH_LONG).show();
+                        tv.setText("BMI : " + bmi.toString().subSequence(0,4));
                     }
                 }
             }
