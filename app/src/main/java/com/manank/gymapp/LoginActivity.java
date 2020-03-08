@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
@@ -53,7 +54,7 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseHelper db;
-    Boolean filePerm = true;
+    Boolean Initialized = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +65,6 @@ public class LoginActivity extends AppCompatActivity {
             //ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
             ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 123);
             Toast.makeText(getApplicationContext(),"Need Permission to access storage for Downloading Image",Toast.LENGTH_LONG).show();
-            filePerm = false;
             LoginActivity.this.finish();
         }
 
@@ -78,6 +78,12 @@ public class LoginActivity extends AppCompatActivity {
         forgot = findViewById(R.id.btnForgot);
         final EditText email = findViewById(R.id.username);
         final EditText password = findViewById(R.id.password);
+
+        Cursor cd = db.getWorkout();
+        if(cd.getCount()!=0)
+            Initialized=true;
+        else
+            Initialized=false;
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,9 +122,11 @@ public class LoginActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             db.setSession(user.getUid(),eml);
 
-                            //WORK
-                            downloadWorkouts();
-                            downloadDiet();
+                            //Check if data and images downloaded or not
+                            if(!Initialized) {
+                                downloadWorkouts();
+                                downloadDiet();
+                            }
 
                             Toast.makeText(getApplicationContext(), "Login Successful",Toast.LENGTH_LONG).show();
                             Intent i = new Intent(getApplicationContext(),MainActivity.class);
@@ -138,9 +146,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public String URL_REGIST="https://yourfitnessapp.000webhostapp.com/";
 
-
     JSONArray array;
-
 
     public void downloadWorkouts(){
 
