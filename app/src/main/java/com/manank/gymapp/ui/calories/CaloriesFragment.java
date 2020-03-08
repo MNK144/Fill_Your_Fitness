@@ -84,22 +84,22 @@ public class CaloriesFragment extends Fragment {
                     }
                     switch (exeind){
                         case 0:
-                            calories = bmr *1.8;
+                            calories = bmr;
                             break;
                         case 1:
-                            calories = bmr *2;
+                            calories = bmr * 1.2;
                             break;
                         case 2:
-                            calories = bmr *3;
+                            calories = bmr * 1.375;
                             break;
                         case 3:
-                            calories = bmr *4;
+                            calories = bmr * 1.55;
                             break;
                         case 4:
-                            calories = bmr *5;
+                            calories = bmr * 1.725;
                             break;
                         case 5:
-                            calories = bmr *6;
+                            calories = bmr * 1.9;
                             break;
                     }
                 }

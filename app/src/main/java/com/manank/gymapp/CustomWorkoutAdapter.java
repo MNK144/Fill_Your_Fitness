@@ -41,7 +41,7 @@ public  class CustomWorkoutAdapter extends CursorAdapter{
         txtTitle.setText(title);
         txtDesc.setText(desc);
 
-        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/Workouts");
+        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/.Workouts");
         File imageFile = new File(path, String.valueOf(img));
         imageView.setImageDrawable(Drawable.createFromPath(imageFile.toString()));
 

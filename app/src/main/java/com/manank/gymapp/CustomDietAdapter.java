@@ -40,7 +40,7 @@ public class CustomDietAdapter extends CursorAdapter {
         txtTitle.setText(title);
         txtTime.setText(time);
 
-        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/Diets");
+        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/.Diets");
         File imageFile = new File(path, String.valueOf(img));
         imageView.setImageDrawable(Drawable.createFromPath(imageFile.toString()));
     }

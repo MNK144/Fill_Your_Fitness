@@ -56,18 +56,17 @@
         android:textSize="18dp"
         />
 
+
     <TextView
         android:id="@+id/vdcal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calories: "
-        android:layout_marginTop="5dp"
         android:layout_below="@id/vdtime"
         android:layout_alignLeft="@id/vdd"
-        android:textSize="18dp"
-        />
-
-
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="25dp"
+        android:text="Calories: "
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/vdd"
@@ -75,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/vdcal"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:textSize="18dp"
         android:text="HELL tret reere ertete eeO\nWorld mr mre mkrem rek\n rkgmre mre gre\n rkng rekngre "
         />

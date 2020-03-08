@@ -27,6 +27,7 @@
          android:layout_height="wrap_content"
          android:textSize="10sp"
          android:textColor="#ffffff"
+         android:maxLength="50"
          android:text="This is where all the description will go"/>
     </LinearLayout>
 
