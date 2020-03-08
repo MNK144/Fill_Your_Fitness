@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="10dp"
+    android:paddingBottom="10dp"
     android:gravity="center"
     android:outlineProvider="background"
     >
@@ -21,12 +22,12 @@
             android:textColor="#ffffff"
             android:textSize="18sp"/>
         <TextView
-            android:id="@+id/dldesc"
+            android:id="@+id/dltime"
             android:layout_width="250sp"
             android:layout_height="wrap_content"
             android:textSize="10sp"
             android:textColor="#ffffff"
-            android:text="This is where all the description will go"/>
+            android:text="This is where time of food will go"/>
     </LinearLayout>
 
     <ImageView

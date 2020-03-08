@@ -1,9 +1,13 @@
 package com.manank.gymapp;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -24,6 +28,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
             this.finish();
         }
-
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -79,30 +83,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //LayoutInflater factory = getLayoutInflater();
-        //View text = factory.inflate(R.layout.nav_header_main,null);
-//        try {
-//
-//
-//            NavigationView nav = (NavigationView) findViewById(R.id.mobile_navigation);
-//            Log.d("TEST",String.valueOf(nav==null));
-//            View headerView = nav.inflateHeaderView(R.layout.nav_header_main);
-//            TextView uemail = headerView.findViewById(R.id.uemail);
-//            String s;
-//            while (c.moveToNext()) {
-//                s = c.getString(1);
-//                Log.d("STR", uemail.getText().toString());
-//                uemail.setText(s);
-//                Log.d("STR", uemail.getText().toString());
-//            }
-//        }
-//        catch (Exception e)
-//        {
-//            Log.d("TEST","nn up\n" + e);
-//        }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
     public void logoutMethod(){
@@ -126,4 +106,6 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
 }

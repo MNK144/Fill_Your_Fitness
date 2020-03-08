@@ -2,19 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<Button
-    android:id="@+id/fwinsert"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true"
-    android:text="Add Data"
-    android:ems="14"
-    />
+
 <ListView
     android:id="@+id/workout_list"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_below="@id/fwinsert"
+    android:layout_marginTop="10dp"
     />
 
 
