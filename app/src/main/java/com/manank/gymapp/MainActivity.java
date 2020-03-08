@@ -44,16 +44,6 @@ public class MainActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
         Cursor c = db.getSession();
 
-        /*
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 123);
-            Toast.makeText(getApplicationContext(),"Need Permission to access storage for Downloading Image",Toast.LENGTH_LONG).show();
-        }*/
-
-
-
         //Session Checking
 
         if(c.getCount()==0) {
@@ -61,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
             this.finish();
         }
-
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);

@@ -35,7 +35,7 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+ TABLE_SESSION +" ("+S_COL_SESSION +" TEXT , "+ S_COL_EMAIL+ " TEXT)");
-        db.execSQL("CREATE TABLE " + TABLE_WORKOUT +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ W_COL_TITLE +" TEXT , "+ W_COL_DESCRIPTION + " TEXT , " + W_COL_IMAGES +" BLOB)");
+        db.execSQL("CREATE TABLE " + TABLE_WORKOUT +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ W_COL_TITLE +" TEXT , "+ W_COL_DESCRIPTION + " TEXT , " + W_COL_IMAGES +" TEXT)");
         db.execSQL("CREATE TABLE " + TABLE_DIET +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ D_COL_TITLE +" TEXT , "+ D_COL_DESCRIPTION + " TEXT , " + D_COL_IMAGES +" TEXT , " + D_COL_TIME + " TEXT , " + D_COL_CALORIES + " INTEGER(4))");
     }
 
