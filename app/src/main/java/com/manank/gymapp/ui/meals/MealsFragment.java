@@ -33,6 +33,17 @@ public class MealsFragment extends Fragment {
             }
         });
 
+        Button trainer = root.findViewById(R.id.trainerlink);
+        trainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://www.urbanclap.com/ahmedabad-fitness-trainer-at-home";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
         return root;
     }
 

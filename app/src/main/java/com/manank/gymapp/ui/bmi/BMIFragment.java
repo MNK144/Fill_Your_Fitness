@@ -25,7 +25,7 @@ public class BMIFragment extends Fragment /*implements AdapterView.OnItemSelecte
 
 
     EditText height,weight,age;
-    TextView tv;
+    TextView tv,tr;
     Spinner gender;
     Button btnbmi;
     String[] users = { "Male", "Female" };
@@ -48,6 +48,7 @@ public class BMIFragment extends Fragment /*implements AdapterView.OnItemSelecte
         age = root.findViewById(R.id.age);
         btnbmi = root.findViewById(R.id.btnbmi);
         tv = root.findViewById(R.id.bmival);
+        tr = root.findViewById(R.id.bmirating);
 
         gender = root.findViewById(R.id.gender);
         gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -89,8 +90,21 @@ public class BMIFragment extends Fragment /*implements AdapterView.OnItemSelecte
                         ag = Integer.parseInt(prage);
 
                         bmi = (wei / ((hei * hei)));
-                        Toast.makeText(getActivity().getApplicationContext(), "Height - "+hei+" Weight- "+wei+"\nBMI is " + bmi +"Gen "+genderstr, Toast.LENGTH_LONG).show();
-                        tv.setText("BMI : " + bmi.toString().subSequence(0,4));
+
+                        String rate = "";
+                        if(bmi<16)
+                            rate = "Underweight";
+                        else if(bmi < 25)
+                            rate = "Healthy";
+                        else if(bmi < 30)
+                            rate = "Overweight";
+                        else
+                            rate = "Obese";
+
+                        tv.setText("BMI Score : " + bmi.toString().subSequence(0,4));
+                        tr.setText("Category : "+rate);
+//                        Toast.makeText(getActivity().getApplicationContext(), "Height - "+hei+" Weight- "+wei+"\nBMI is " + bmi +"Gen "+genderstr, Toast.LENGTH_LONG).show();
+
                     }
                 }
             }

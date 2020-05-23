@@ -22,7 +22,7 @@ import com.manank.gymapp.R;
 public class CaloriesFragment extends Fragment {
 
     EditText height,weight,age;
-    TextView tv;
+    TextView tv,tp,tc;
     Spinner gender,exerciselevel;
     String genderstr;
     String calstr;
@@ -41,6 +41,9 @@ public class CaloriesFragment extends Fragment {
         age = root.findViewById(R.id.cage);
 
         tv = root.findViewById(R.id.calval);
+        tp = root.findViewById(R.id.txtprt);
+        tc = root.findViewById(R.id.txtcrb);
+
 
         gender = root.findViewById(R.id.calgender);
         gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -103,7 +106,11 @@ public class CaloriesFragment extends Fragment {
                             break;
                     }
                 }
+                Double cp = calories*0.2;
+                Double cb = calories*0.6;
                 tv.setText("Daily Calories Intake : " + calories.toString().subSequence(0,4));
+                tp.setText("Protein Intake: "+ cp.toString().subSequence(0,4));
+                tc.setText("Carbohydrate Intake: "+ cb.toString().subSequence(0,4));
             }
         });
         return root;

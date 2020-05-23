@@ -8,7 +8,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="40dp"
+        android:paddingTop="20dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="20dp"
             android:text="Calories Calculator"
             android:textSize="36dp" />
 
@@ -86,6 +86,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
+            android:background="@color/colorPrimary"
             android:text="Find Calories"/>
 
         <TextView
@@ -93,8 +94,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
+            android:textStyle="bold"
             android:layout_marginTop="10dp"
             android:text="Daily Calories Intake: "
+            />
+        <TextView
+            android:id="@+id/txtprt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="15dp"
+            android:text="Protein Intake: "
+            />
+        <TextView
+            android:id="@+id/txtcrb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="15dp"
+            android:text="Carbohydrate Intake: "
             />
 
     </LinearLayout>

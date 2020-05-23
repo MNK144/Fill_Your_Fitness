@@ -157,7 +157,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            String st = "https://yourfitnessapp.000webhostapp.com/images/";
+                            String st = "https://yourfitnessapp.000webhostapp.com/exercise/";
                             array=new JSONArray(response);
                             JSONObject obj;
                             for(int x=0;x<array.length();x++){

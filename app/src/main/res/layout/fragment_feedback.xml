@@ -19,7 +19,7 @@
         android:layout_height="5dp"
         android:layout_below="@id/tv1"
         android:layout_marginTop="10dp"
-        android:background="#5E2BD6"/>
+        android:background="@color/colorPrimary"/>
 
     <EditText
         android:id="@+id/oex"

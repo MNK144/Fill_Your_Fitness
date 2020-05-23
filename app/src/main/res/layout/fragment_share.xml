@@ -38,6 +38,7 @@
       android:layout_height="60dp"
       android:text="Share"
       android:ems="11"
+      android:background="@color/colorPrimary"
       android:layout_centerHorizontal="true"
       android:layout_below="@id/txtlink"
       />

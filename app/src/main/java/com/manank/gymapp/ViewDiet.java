@@ -13,7 +13,7 @@ import java.io.File;
 
 public class ViewDiet extends AppCompatActivity {
     DatabaseHelper db;
-    TextView title,desc,time,cal;
+    TextView title,desc,time,cal,crb,prt;
     ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,8 @@ public class ViewDiet extends AppCompatActivity {
         imageView = findViewById(R.id.vdimg);
         time = findViewById(R.id.vdtime);
         cal = findViewById(R.id.vdcal);
+        crb = findViewById(R.id.calcar);
+        prt = findViewById(R.id.calprt);
 
         Cursor data;
         data=db.getDiet();
@@ -36,6 +38,10 @@ public class ViewDiet extends AppCompatActivity {
         desc.setText(data.getString(2));
         time.setText(time.getText().toString()+data.getString(4));
         cal.setText(cal.getText().toString()+data.getString(5)+"kcal");
+        Double dcrb = (Double.parseDouble(data.getString(5))*4.4);
+        Double dprt = (Double.parseDouble(data.getString(5))*2.3);
+        crb.setText(crb.getText().toString()+dcrb.toString().subSequence(0,2)+"gm");
+        prt.setText(prt.getText().toString()+dprt.toString().subSequence(0,2)+"gm");
 
         String img = data.getString(3);
 

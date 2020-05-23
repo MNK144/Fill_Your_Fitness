@@ -71,16 +71,26 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
+            android:background="@color/colorPrimary"
             android:text="Calculate BMI"/>
 
         <TextView
             android:id="@+id/bmival"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="24dp"
+            android:background="@color/colorPrimary"
             android:layout_marginTop="10dp"
-            android:text="BMI : "
+            android:text="BMI Score : "
             />
-
+        <TextView
+            android:id="@+id/bmirating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="20dp"
+            android:text="Category : "
+            />
     </LinearLayout>
 </RelativeLayout>

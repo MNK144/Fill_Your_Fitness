@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="20dp"
         android:text="Fit Meals"
         android:textSize="36dp" />
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="162dp"
+        android:layout_marginTop="100dp"
         android:src="@mipmap/logofit" />
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_below="@id/textmeal"
         android:text="Follow the link and Order Meals"
         android:textSize="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:layout_marginBottom="20dp"
         />
 
@@ -40,10 +40,58 @@
         android:id="@+id/meallink"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:text="Open"
+        android:text="Meal"
         android:ems="11"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/ordmeal"
+        android:background="@color/colorPrimary"
         />
+
+
+    <TextView
+        android:id="@+id/texttrainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ordmeal"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="147dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginBottom="20dp"
+        android:text="Trainer"
+        android:textSize="36dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="224dp"
+        android:layout_height="106dp"
+        android:layout_below="@id/texttrainer"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="380dp"
+        android:src="@mipmap/urbanclap" />
+
+    <TextView
+        android:id="@+id/ordertrainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-5dp"
+        android:layout_marginBottom="20dp"
+        android:text="Book Personal Trainer Now"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/trainerlink"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@id/ordertrainer"
+        android:layout_centerHorizontal="true"
+        android:ems="11"
+        android:background="@color/colorPrimary"
+        android:text="Trainer" />
 
 </RelativeLayout>
