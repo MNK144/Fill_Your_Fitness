@@ -60,13 +60,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //Code to get permissions from user
-        if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            //ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
-            ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 123);
-            Toast.makeText(getApplicationContext(),"Need Permission to access storage for Downloading Image",Toast.LENGTH_LONG).show();
-            LoginActivity.this.finish();
-        }
+        //Load Image...DISABLED DOWNLOADED IMAGES
+        //if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
+        //        ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+        //    //ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
+        //    ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 123);
+        //    Toast.makeText(getApplicationContext(),"Need Permission to access storage for Downloading Image",Toast.LENGTH_LONG).show();
+        //    LoginActivity.this.finish();
+        //}
 
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
@@ -126,6 +127,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(!Initialized) {
                                 downloadWorkouts();
                                 downloadDiet();
+                                //initNoMedia();
                             }
 
                             Toast.makeText(getApplicationContext(), "Login Successful",Toast.LENGTH_LONG).show();
@@ -140,7 +142,13 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
+    public void initNoMedia()
+    {
+        File pathW = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/Workouts");
+        File imageFile = new File(pathW, String.valueOf(".nomedia"));
+        File pathD = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/Diets");
+        File imageFileD = new File(pathD, String.valueOf(".nomedia"));
+    }
 
 
 
@@ -163,7 +171,8 @@ public class LoginActivity extends AppCompatActivity {
                             for(int x=0;x<array.length();x++){
                                 obj=array.getJSONObject(x);
                                 db.setWorkout(obj.getString("Exercise_Name"),obj.getString("Exercise_Desc"),obj.getString("ExerciseID")+".png");
-                                new DownloadsImage().execute(st+obj.getString("ExerciseID")+".png");
+                                //Load Image...DISABLED DOWNLOADED IMAGES
+                                //new DownloadsImage().execute(st+obj.getString("ExerciseID")+".png");
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -266,7 +275,8 @@ public class LoginActivity extends AppCompatActivity {
                             for(int x=0;x<array.length();x++){
                                 obj=array.getJSONObject(x);
                                 db.setDiet(obj.getString("food"),obj.getString("descri"),obj.getString("food")+".jpg",obj.getString("time"),obj.getInt("cal"));
-                                new DownloadsDiet(obj.getString("food")+".jpg").execute(st+obj.getString("food")+".jpg");
+                                //Load Image...DISABLED DOWNLOADED IMAGES
+                                //new DownloadsDiet(obj.getString("food")+".jpg").execute(st+obj.getString("food")+".jpg");
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

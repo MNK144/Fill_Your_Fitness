@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,9 +42,12 @@ public  class CustomWorkoutAdapter extends CursorAdapter{
         txtTitle.setText(title);
         txtDesc.setText(desc);
 
-        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/.Workouts");
-        File imageFile = new File(path, String.valueOf(img));
-        imageView.setImageDrawable(Drawable.createFromPath(imageFile.toString()));
-
+        //Load Image...DISABLED DOWNLOADED IMAGES
+        //File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/.Workouts");
+        //File imageFile = new File(path, String.valueOf(img));
+        //imageView.setImageDrawable(Drawable.createFromPath(imageFile.toString()));
+        //Log.d("Workout Images",img.substring(0,img.length()-4).toLowerCase());
+        int id = context.getResources().getIdentifier(img.substring(0,img.length()-4).toLowerCase(),"mipmap",context.getPackageName());
+        imageView.setImageDrawable(context.getDrawable(id));
     }
 }
