@@ -26,7 +26,8 @@ public class ShareFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("text/plain");
-                String shareBody = "https://bit.ly/FillYourFitness0";
+                //String shareBody = "https://bit.ly/FillYourFitness0";
+                String shareBody = "https://play.google.com/store";
                 String shareSub = "Download Fill_Your_Fitness:";
                 i.putExtra(Intent.EXTRA_SUBJECT,shareSub);
                 i.putExtra(Intent.EXTRA_TEXT,shareBody);

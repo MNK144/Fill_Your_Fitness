@@ -2,14 +2,9 @@ package com.manank.gymapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.database.Cursor;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Environment;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.io.File;
 
 public class ViewDiet extends AppCompatActivity {
     DatabaseHelper db;
@@ -20,7 +15,6 @@ public class ViewDiet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_diet);
         db = new DatabaseHelper(this);
-        int id;
         title = findViewById(R.id.vdt);
         desc = findViewById(R.id.vdd);
         imageView = findViewById(R.id.vdimg);
@@ -29,28 +23,31 @@ public class ViewDiet extends AppCompatActivity {
         crb = findViewById(R.id.calcar);
         prt = findViewById(R.id.calprt);
 
-        Cursor data;
-        data=db.getDiet();
-        id = (int)getIntent().getLongExtra("id",0);
+        int i = ((int)getIntent().getLongExtra("id",0))-1;
+        String time;
+        if(i<5)
+            time="Breakfast";
+        else if(i<10)
+            time="Brunch";
+        else if(i<15)
+            time="Lunch";
+        else if(i<20)
+            time="PreWorkout";
+        else if(i<25)
+            time="PostWorkout";
+        else
+            time="Dinner";
 
-        data.move(id);
-        title.setText(data.getString(1));
-        desc.setText(data.getString(2));
-        time.setText(time.getText().toString()+data.getString(4));
-        cal.setText(cal.getText().toString()+data.getString(5)+"kcal");
-        Double dcrb = (Double.parseDouble(data.getString(5))*4.4);
-        Double dprt = (Double.parseDouble(data.getString(5))*2.3);
+        title.setText(DietData.name[i]);
+        desc.setText(DietData.desc[i]);
+        this.time.setText(this.time.getText().toString()+time);
+        cal.setText(cal.getText().toString()+String.valueOf(DietData.calories[i])+"kcal");
+
+        Double dcrb = (DietData.calories[i]*4.4);
+        Double dprt = (DietData.calories[i]*2.3);
         crb.setText(crb.getText().toString()+dcrb.toString().subSequence(0,2)+"gm");
         prt.setText(prt.getText().toString()+dprt.toString().subSequence(0,2)+"gm");
 
-        String img = data.getString(3);
-
-
-        //Load Image...DISABLED DOWNLOADED IMAGES
-        //File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/.Diets");
-        //File imageFile = new File(path, String.valueOf(img));
-        //imageView.setImageDrawable(Drawable.createFromPath(imageFile.toString()));
-        int imgid = getResources().getIdentifier(img.substring(0,img.length()-4).toLowerCase(),"mipmap",getPackageName());
-        imageView.setImageDrawable(getDrawable(imgid));
+        imageView.setImageResource(DietData.image[i]);
     }
 }

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -18,9 +17,7 @@ import com.manank.gymapp.DatabaseHelper;
 import com.manank.gymapp.R;
 import com.manank.gymapp.ViewWorkout;
 
-
 public class WorkoutFragment extends Fragment{
-
     DatabaseHelper db;
     Cursor data;
     CustomWorkoutAdapter adapter;
@@ -36,8 +33,7 @@ public class WorkoutFragment extends Fragment{
         if(data!=null) {
             adapter = new CustomWorkoutAdapter(getActivity().getApplicationContext(),data,0);
             list.setAdapter(adapter);
-       }
-
+        }
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -49,8 +45,4 @@ public class WorkoutFragment extends Fragment{
 
         return root;
     }
-
-
-
-
 }

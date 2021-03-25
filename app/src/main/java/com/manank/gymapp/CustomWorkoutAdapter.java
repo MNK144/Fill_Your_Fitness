@@ -2,18 +2,13 @@ package com.manank.gymapp;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.drawable.Drawable;
-import android.os.Environment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.io.File;
 
 public  class CustomWorkoutAdapter extends CursorAdapter{
 
@@ -33,21 +28,9 @@ public  class CustomWorkoutAdapter extends CursorAdapter{
         TextView txtDesc = view.findViewById(R.id.wldesc);
         ImageView imageView = view.findViewById(R.id.wlimg);
 
-
-        String title = cursor.getString(cursor.getColumnIndex("title"));
-        String desc = cursor.getString(cursor.getColumnIndex("description"));
-        String img = cursor.getString(cursor.getColumnIndex("images"));
-
-
-        txtTitle.setText(title);
-        txtDesc.setText(desc);
-
-        //Load Image...DISABLED DOWNLOADED IMAGES
-        //File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ "/FillYourFitness/.Workouts");
-        //File imageFile = new File(path, String.valueOf(img));
-        //imageView.setImageDrawable(Drawable.createFromPath(imageFile.toString()));
-        //Log.d("Workout Images",img.substring(0,img.length()-4).toLowerCase());
-        int id = context.getResources().getIdentifier(img.substring(0,img.length()-4).toLowerCase(),"mipmap",context.getPackageName());
-        imageView.setImageDrawable(context.getDrawable(id));
+        int index = cursor.getInt(0)-1;
+        txtTitle.setText(WorkoutData.name[index]);
+        txtDesc.setText(WorkoutData.desc[index]);
+        imageView.setImageResource(WorkoutData.image[index]);
     }
 }

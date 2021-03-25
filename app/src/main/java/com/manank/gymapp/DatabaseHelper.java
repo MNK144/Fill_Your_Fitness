@@ -15,28 +15,22 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
 
     public static final String TABLE_WORKOUT = "workout_table";
     public static final String W_COL_TITLE = "title";
-    public static final String W_COL_DESCRIPTION = "description";
-    public static final String W_COL_IMAGES = "images";
+
 
     public static final String TABLE_DIET = "diet_table";
     public static final String D_COL_TITLE = "title";
-    public static final String D_COL_DESCRIPTION = "description";
-    public static final String D_COL_TIME = "time";
-    public static final String D_COL_IMAGES = "images";
-    public static final String D_COL_CALORIES = "calories";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("CREATE TABLE IF NOT EXISTS "+ TABLE_SESSION +" ("+S_COL_SESSION +" TEXT , "+ S_COL_EMAIL+ " TEXT)");//edit
-
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+ TABLE_SESSION +" ("+S_COL_SESSION +" TEXT , "+ S_COL_EMAIL+ " TEXT)");
-        db.execSQL("CREATE TABLE " + TABLE_WORKOUT +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ W_COL_TITLE +" TEXT , "+ W_COL_DESCRIPTION + " TEXT , " + W_COL_IMAGES +" TEXT)");
-        db.execSQL("CREATE TABLE " + TABLE_DIET +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ D_COL_TITLE +" TEXT , "+ D_COL_DESCRIPTION + " TEXT , " + D_COL_IMAGES +" TEXT , " + D_COL_TIME + " TEXT , " + D_COL_CALORIES + " INTEGER(4))");
+        db.execSQL("CREATE TABLE " + TABLE_WORKOUT +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ W_COL_TITLE +" TEXT)");
+        db.execSQL("CREATE TABLE " + TABLE_DIET +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+ D_COL_TITLE +" TEXT)");
     }
 
     @Override
@@ -56,7 +50,6 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
         }
         return user;
     }
-
 
     public boolean setSession(String session, String email)
     {
@@ -81,13 +74,11 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_SESSION);//edit
     }
-    public boolean setWorkout(String title,String desc,String img)
+    public boolean setWorkout(String title)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(W_COL_TITLE,title);
-        cv.put(W_COL_DESCRIPTION,desc);
-        cv.put(W_COL_IMAGES,img);
         long res = db.insert(TABLE_WORKOUT,null,cv);
         if(res==-1)
             return false;
@@ -100,15 +91,11 @@ public class DatabaseHelper extends  SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM "+TABLE_WORKOUT,null);
         return data;
     }
-    public boolean setDiet(String title,String desc,String img,String time,int calories)
+    public boolean setDiet(String title)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(D_COL_TITLE,title);
-        cv.put(D_COL_DESCRIPTION,desc);
-        cv.put(D_COL_IMAGES,img);
-        cv.put(D_COL_TIME,time);
-        cv.put(D_COL_CALORIES,calories);
         long res = db.insert(TABLE_DIET,null,cv);
         if(res==-1)
             return false;
